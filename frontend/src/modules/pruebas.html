@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABS - Usuario</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --sabs-orange: #FF8C00;
+            --sabs-light-orange: #FFA500;
+            --sabs-gray: #F0F0F0;
+            --sabs-muted-orange: #ffa600;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container-fluid {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        /* Sidebar */
+        .sidebar {
+            background-color: #fff;
+            width: 250px;
+            transition: width 0.3s;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .sidebar.collapsed {
+            width: 80px;
+        }
+        .sidebar .nav-link {
+            color: #000;
+            padding: 10px 15px;
+            border-radius: 25px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar .nav-link.active {
+            background-color: var(--sabs-orange);
+            color: white;
+        }
+        .sidebar .nav-link:hover:not(.active) {
+            background-color: var(--sabs-light-orange);
+            color: white;
+        }
+        .sidebar .nav-item.submenu .nav-link.active[href="#"] {
+            background-color: var(--sabs-muted-orange);
+            color: #fff;
+        }
+        .sidebar.collapsed .nav-link span {
+            display: none;
+        }
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            min-width: 20px;
+        }
+        .sidebar .nav-item.submenu {
+            padding-left: 20px;
+        }
+        .sidebar .nav-item.submenu .nav-link {
+            padding-left: 30px;
+        }
+        .sena-logo {
+            width: 100px;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+        /* Menú hamburguesa */
+        #menu-toggle {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* Main content */
+        .main-content {
+            flex: 1;
+            background-color: var(--sabs-gray);
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+        .main-content.collapsed-content {
+            margin-left: 80px;
+        }
+        /* Top bar */
+        .top-bar {
+            background-color: var(--sabs-orange);
+            color: white;
+            padding: 10px 20px;
+        }
+        /* Button styles */
+        .btn-registrar {
+            background-color: var(--sabs-light-orange);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn-registrar:hover {
+            background-color: var(--sabs-orange);
+            color: white;
+        }
+        /* Modal styles */
+        .modal-header {
+            background-color: var(--sabs-orange);
+            color: white;
+        }
+        .modal-body {
+            background-color: var(--sabs-gray);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="text-center mb-4 position-relative">
+                <button id="menu-toggle" class="btn">
+                    <i class="bi bi-list"></i>
+                </button>
+                <img src="img/sabs.png" alt="SABS Logo" width="50">
+                <h5 class="mt-2">SABS</h5>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-house-door-fill"></i> <span>Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-bs-toggle="collapse" data-bs-target="#adminSubmenu">
+                        <i class="bi bi-person-fill-gear"></i> <span>Administrador</span>
+                    </a>
+                    <div class="collapse show" id="adminSubmenu">
+                        <ul class="nav flex-column">
+                            <li class="nav-item submenu">
+                                <a class="nav-link active" href="#"><i class="bi bi-person-fill"></i> <span>Usuario</span></a>
+                            </li>
+                            <li class="nav-item submenu">
+                                <a class="nav-link" href="#"><i class="bi bi-box2-fill"></i> <span>Material</span></a>
+                            </li>
+                            <li class="nav-item submenu">
+                                <a class="nav-link" href="#"><i class="bi bi-signpost-2-fill"></i> <span>Movimiento</span></a>
+                            </li>
+                            <li class="nav-item submenu">
+                                <a class="nav-link" href="#"><i class="bi bi-building-fill"></i> <span>Centro</span></a>
+                            </li>
+                            <li class="nav-item submenu">
+                                <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> <span>Sede</span></a>
+                            </li>
+                            <li class="nav-item submenu">
+                                <a class="nav-link" href="#"><i class="bi bi-graph-up"></i> <span>Área</span></a>
+                            </li>
+                            <li class="nav-item submenu">
+                                <a class="nav-link" href="#"><i class="bi bi-diagram-3-fill"></i> <span>Programa</span></a>
+                            </li>
+                            <li class="nav-item submenu">
+                                <a class="nav-link" href="#"><i class="bi bi-clipboard2-data-fill"></i> <span>Ficha</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-house-gear-fill"></i> <span>Bodega</span></a>
+                </li>
+            </ul>
+            <div class="text-center mt-5">
+                <img src="img/image.png" alt="SENA Logo" class="sena-logo">
+            </div>
+        </nav>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <!-- Top bar -->
+            <div class="top-bar d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h2">Usuario</h1>
+                <div class="d-flex align-items-center">
+                    <span class="me-3">Administrador: Pepito Perez</span>
+                    <i class="bi bi-person-circle me-3"></i>
+                    <i class="bi bi-bell-fill me-3"></i>
+                    <i class="bi bi-gear-fill"></i>
+                </div>
+            </div>
+
+            <!-- Main content area -->
+            <div class="main-content">
+                <div class="d-flex justify-content-between mb-3">
+                    <button type="button" class="btn btn-registrar" data-bs-toggle="modal" data-bs-target="#registrarModal">
+                        REGISTRAR
+                    </button>
+                    <button type="button" class="btn btn-registrar">
+                        DESCARGAR
+                    </button>
+                </div>
+
+                <nav class="navbar mb-4">
+                    <div class="container-fluid">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                </nav>
+
+                <!-- Tabla materiales -->
+                <div class="table-responsive">
+                    <table id="materialesTable" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Tipo-material</th>
+                                <th>Cantidad</th>
+                                <th>Área</th>
+                                <th>Bodega</th>
+                                <th>Fecha-ingreso</th>
+                                <th>Fecha-caducidad</th>
+                                <th>Estado</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Filas de ejemplo -->
+                            <tr>
+                                <td>1</td>
+                                <td>Jeidi Buesaquillo</td>
+                                <td>Computador</td>
+                                <td>1</td>
+                                <td>administrativa</td>
+                                <td>2</td>
+                                <td>28</td>
+                                <td>30</td>
+                                <td>
+                                    <div class="d-flex justify-content-center form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault1">
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <!-- Agregar más filas según sea necesario -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Paginacion -->
+                <nav class="d-flex justify-content-end mt-4" aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item me-3">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item me-3"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item me-3"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item me-3"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item me-3"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item me-3">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registrarModal" tabindex="-1" aria-labelledby="registrarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registrarModalLabel">Registrar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nombre Completo">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Identificación">
+                            </div>
+                            <div class="col">
+                                <select class="form-select">
+                                    <option selected disabled>Rol</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Usuario</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Correo Electrónico">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" placeholder="Contraseña">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select">
+                                <option selected disabled>Programas</option>
+                                <option value="1">Programa 1</option>
+                                <option value="2">Programa 2</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-registrar w-100">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript para alternar el menú hamburguesa
+        const toggleButton = document.getElementById('menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('collapsed-content');
+        });
+    </script>
+</body>
+</html>
