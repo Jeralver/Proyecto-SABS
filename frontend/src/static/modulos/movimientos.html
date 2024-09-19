@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABS - Movimientos </title>
+    <link rel="stylesheet" href="/frontend//src/static/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css">
+    <link href="/frontend/src/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/src/static/css/movimientos.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky">
+                    <div class="text-center mb-4">
+                        <img src="../img/sabs.png" alt="SABS Logo" width="50">
+                        <h5 class="mt-2">SABS</h5>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-house"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-bs-toggle="collapse" data-bs-target="#adminSubmenu">
+                                <i class="bi bi-person-fill-gear"></i> Administrador
+                            </a>
+                            <div class="collapse show" id="adminSubmenu">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-person-fill"></i> Usuario</a>
+                                    </li>
+                                    
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-box2-fill"></i> Material</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-signpost-2-fill"></i> Movimiento</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-building-fill"></i> Centro</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Sede</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-graph-up"></i> Área</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-diagram-3-fill"></i> Programa</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-clipboard2-data-fill"></i> Ficha</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-house-gear-fill"></i> Bodega</a>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-5">
+                        <img src="../img/sena-logo.png" alt="SENA Logo" class="sena-logo">
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Top bar -->
+                <div class="top-bar d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="h2">Movimientos</h1>
+                    <div class="d-flex align-items-center">
+                        <span class="me-3">Administrador: Pepito Perez</span>
+                        <i class="bi bi-person-circle"></i>
+                        <i class="bi bi-bell-fill"></i>
+                        <i class="bi bi-gear-fill"></i>
+                    </div>
+                </div>
+
+                <!-- Main content area -->
+                <div class="main-content">
+                    <button type="button" class="btn btn-solicitar" data-bs-toggle="modal" data-bs-target="#solicitarModal">
+                        SOLICITAR
+                    </button>
+                <div class="main-content">
+                    <button type="button" class="btn btn-movimientos" data-bs-toggle="modal" data-bs-target="#movimientosModal">
+                        MOVIMIENTOS
+                    </button>
+                
+                <div class="main-content">
+                    <button type="button" class="btn btn-descargar" data-bs-toggle="modal" data-bs-target="#descargarModal">
+                        DESCARGAR
+                    </button>
+
+                    <!-- Barra de busqueda -->
+                    <nav class="navbar bg-body-tertiary">
+                        <div class="container-fluid">
+                        <form class="d-flex" role="Buscar">
+                            <i class="bi bi-search"></i>
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#buscarModal">
+                                BUSCAR MOVIMIENTOS
+                            </button>
+                        </form>
+                        </div>
+                    </nav>
+
+                    <!-- Tabla de movimientos -->
+                    <div class="container-sm mt-5">
+                        <table id="movimientosTable" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Tipo de Material</th>
+                            <th>Cantidad</th>
+                            <th>Área</th>
+                            <th>Bodega</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Fecha Caducidad</th>
+                            <th>Estado</th>
+                            <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="d-flex justify-content-center form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                </div>
+                            </td>
+                            <td></td>
+                            </tr>
+                            
+                            <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="d-flex justify-content-center form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                </div>
+                            </td>
+                            <td></td>
+                            </tr>
+                            
+                            <tr>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="d-flex justify-content-center form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                </div>
+                            </td>
+                            <td></td>
+                            </tr>
+                            
+                            <tr>
+                            <td>4</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="d-flex justify-content-center form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                </div>
+                            </td>
+                            <td></td>
+                            </tr>
+                            
+                            <tr>
+                            <td>5</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="d-flex justify-content-center form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                </div>
+                            </td>
+                            <td></td>
+                            </tr>
+                            
+                            <tr>
+                            <td>6</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class=" d-flex justify-content-center form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                </div>
+                            </td>
+                            <td></td>
+                            </tr>
+                            <tr>
+                            <td>7</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class=" d-flex justify-content-center form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                </div>
+                            </td>
+                            <td></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <!-- Paginacion -->
+                <nav class="  d-flex flex-row-reverse " aria-label="Page navigation example"></nav>
+                <ul class="pagination">
+                <li class="page-item me-3">
+                    <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item me-3"><a class="page-link" href="#">1</a></li>
+                <li class="page-item me-3"><a class="page-link" href="#">2</a></li>
+                <li class="page-item me-3"><a class="page-link" href="#">3</a></li>
+                <li class="page-item me-3"><a class="page-link" href="#">4</a></li>
+                <li class="page-item me-3">
+                    <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                </ul>
+            </nav>
+                    </div>
+
+                    <!-- Modal de Solicitar -->
+            <div class="modal fade" id="solicitarModal" tabindex="-1" aria-labelledby="solicitarModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="solicitarModalLabel" scope="row">Solicitar Material</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Nombre del Material">
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <div class="col">
+                                            <select class="form-select ">
+                                                <option selected>Tipo Material
+                                                    <option value="1">Consumible</option>
+                                                    <option value="2">No consumible</option>
+                                            </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col">
+                                            <select class="form-select ">
+                                                <option selected>Area
+                                                    <option value="1">TIC</option>
+                                                    <option value="2">PAE</option>
+                                                    <option value="3">Ambiental</option>
+                                                    <option value="4">Construccion</option>
+                                                    <option value="5">Gastronomia</option>
+                                                    <option value="6">Turismo</option>
+                                            </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Cantidad">
+                                    <div class="col">
+                                        <select class="form-select ">
+                                            <option selected>Bodega
+                                                <option value="1">Sede Yamboro</option>
+                                                <option value="2">Sede comercio y servicios</option>
+                                        </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="col">
+                                        <input type="date" class="form-control" placeholder="Fecha de ingreso">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="date"  class="form-control" placeholder="Fecha de caducidad">
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select">
+                                        <option selected>Estado del material
+                                            <option value="1">Activo </option>
+                                            <option value="2">Inactivo </option>
+                                        </option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-solicitar w-100" scope="row">Solicitar</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>            
+                </div>
+
+                    <!--Modal de Movimientos-->
+                    <div class="modal fade" id="movimientosModal" tabindex="-1" aria-labelledby="movimientosModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="movimientosModalLabel" scope="row">Movimientos</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <table id="movimientosTable" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                <th>ID</th>
+                                <th><i class="bi bi-person-plus"></i>Nuevas Solicitudes</th>
+                                <th><i class="bi bi-person-check"></i>Aceptadas</th>
+                                <th><i class="bi bi-person-x"></i>Rechazadas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr>
+                                <td>1</td>
+                                <td></td>
+                                <td><i class="bi bi-file-check"></i></td>
+                                <td><i class="bi bi-file-excel"></i></td>
+                                </tr>
+                                
+                                <tr>
+                                <td>2</td>
+                                <td></td>
+                                <td><i class="bi bi-file-check"></i></td>
+                                <td><i class="bi bi-file-excel"></i></td>
+                                </tr>
+                                
+                                <tr>
+                                <td>3</td>
+                                <td></td>
+                                <td><i class="bi bi-file-check"></i></td>
+                                <td><i class="bi bi-file-excel"></i></td>
+                                </tr>
+                    
+                                <tr>
+                                <td>4</td>
+                                <td></td>
+                                <td><i class="bi bi-file-check"></i></td>
+                                <td><i class="bi bi-file-excel"></i></td>
+                                </tr>
+                                
+                                <tr>
+                                <td>5</td>
+                                <td></td>
+                                <td><i class="bi bi-file-check"></i></td>
+                                <td><i class="bi bi-file-excel"></i></td>
+                                </tr>
+                    
+                            </tbody>
+                            </table>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-movimi btn-primary">DESCARGAR</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>            
+                        </div>
+
+                        <!--Modal de Busqueda-->
+                        <div class="modal fade mod-busq" id="buscarModal" tabindex="-1" aria-labelledby="buscarModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="buscarModalLabel" scope="row">BUSQUEDA</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Material</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Material">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Fecha de Entrada</label>
+                                        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Fecha">
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="col">
+                                            <select class="form-select ">
+                                                <option selected>Area
+                                                    <option value="1">TIC</option>
+                                                    <option value="2">PAE</option>
+                                                    <option value="3">Ambiental</option>
+                                                    <option value="4">Construccion</option>
+                                                    <option value="5">Gastronomia</option>
+                                                    <option value="6">Turismo</option>
+                                            </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="col">
+                                            <select class="form-select ">
+                                                <option selected>Bodega
+                                                    <option value="1">Sede Yamboro</option>
+                                                    <option value="2">Sede comercio y servicios</option>
+                                            </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-busque btn-primary">BUSCAR</button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                    
+
+            </main>
+        </div>
+    </div>
+
+    <script src="/frontend/src/static/bootstrap/js/bootstrap.bundle.js"></script>
+
+</body>
+</html>
