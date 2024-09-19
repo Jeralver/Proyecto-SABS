@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.1.0/dist/style.css">
+    <link rel="stylesheet" href="/frontend/src/static/css/home.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky">
+                    <div class="text-center mb-4">
+                        <img src="/frontend/public/sabs.png" alt="SABS Logo" width="50">
+                        <h5 class="mt-2">SABS</h5>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="home.html"><i class="bi bi-house-door-fill"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#adminSubmenu">
+                                <i class="bi bi-person-fill-gear"></i> Administrador
+                            </a>
+                            <div class="collapse show" id="adminSubmenu">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="index.html"><i class="bi bi-person-fill"></i> Usuario</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="materiales.html"><i class="bi bi-box2-fill"></i> Material</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-signpost-2-fill"></i> Movimiento</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-building-fill"></i> Centro</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Sede</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="area.html"><i class="bi bi-graph-up"></i> Área</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="programa.html"><i class="bi bi-diagram-3-fill"></i> Programa</a>
+                                    </li>
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="#"><i class="bi bi-clipboard2-data-fill"></i> Ficha</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-house-gear-fill"></i> Bodega</a>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-5">
+                        <img src="/frontend/public/image.png" alt="SENA Logo" class="sena-logo">
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Top bar -->
+                <div class="top-bar d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="h2">Home</h1>
+                    <div class="d-flex align-items-center">
+                        <span class="me-3">Administrador: Pepito Perez</span>
+                        <i class="bi bi-person-circle me-3"></i>
+                        <i class="bi bi-bell-fill me-3"></i>
+                        <i class="bi bi-gear-fill me-3">
+                            
+                        </i>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="recuadro">
+                        <h3>Numero de usuarios</h3>
+                        <h4>54</h4>
+                    </div>
+                    <div class="recuadro2">
+                        <h3>Número de Bodegas</h3>
+                        <h4>9</h4>
+                    </div>
+                    <div class="recuadro3">
+                        <h3>Materiales Entregados</h3>
+                        <h4>6</h4>
+                    </div>   
+                    <div class="registro">
+                        <h3>Registro de Materiales entregado 
+                            en lus ultimos meses </h3>
+                            <table class="table">
+                                <tr>
+                                  <th>Mes</th>
+                                  <th>Cantidad</th>
+                                </tr>
+                                <tr>
+                                  <td>Leche</td>
+                                  <td>25 Uni.</td>
+                                </tr>
+                                <tr>
+                                  <td>Huevos</td>
+                                  <td>40 uni.</td>
+                                </tr>
+                                <tr>
+                                  <td>Carne</td>
+                                  <td>30 Kl</td>
+                                </tr>
+                              </table>
+                    </div>
+                    <div class="stock">
+                        <h3>Stocks mes a mes</h3>
+                        <img class="img-fluid" src="/frontend/public/stock.png"></img>
+                        <a href="bodega.html">Bodega</a>
+                    </div>
+                    <div class="caducar">
+                        <h3>Materiales Proximos a caducar</h3>
+                        <table class="table">
+                            <tr>
+                              <th>Material</th>
+                              <th>Fecha de Caducidad</th>
+                            </tr>
+                            <tr>
+                              <td>Leche</td>
+                              <td>15/05/2024</td>
+                            </tr>
+                            <tr>
+                              <td>Huevos</td>
+                              <td>20/05/2024</td>
+                            </tr>
+                            <tr>
+                              <td>Frutas</td>
+                              <td>25/05/2024</td>
+                            </tr>
+                          </table>
+                        
+                    </div>                
+                </div>
+            </main>
+        </div>
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+        console.log("hola");
+    </script>
+</body>
+</html>

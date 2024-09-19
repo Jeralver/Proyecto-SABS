@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/src/static/bootstrap-icons-1.11.3/">
+    <link rel="stylesheet" href="/frontend/src/static/css/solicitar.css">
+        <title>Solicitud de registro</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-container">
+            <a class="bi bi-arrow-left"></a>
+           <h2>Solicitud De Registro</h2>
+            <form>
+                <div class="mb-4">
+                    <input type="text" class="form-control" placeholder="Nombre Completo">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Documento">
+                </div>
+
+                <select class="form-select mb-3" aria-label="Default select example">
+                    <option selected>Rol</option>
+                    <option value="1">Aprendiz</option>
+                    <option value="2">Instructor</option>
+                    <option value="3">Lider</option>
+                </select>
+
+                <label for="comprobante">Comprobante de Cargo</label>
+                <div class="upload-section">
+                    <input type="file" id="comprobante" name="comprobante">
+                </div>
+        </div> 
+
+        <a type="submit" href="sesion.html" class="btn btn-login text-white w-100">Confirmar Registro</a>
+    </div>
+</body>
+
+</html>
