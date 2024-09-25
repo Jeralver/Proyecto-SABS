@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(5deg, #000000c2, #ff6600);
+    background: linear-gradient(5deg, #000000c2, #002bc8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ body {
     border: 1px solid #ddd;
 }
 .btn-login {
-    background-color: #ff6a00;
+    background-color: #002bc8;
     border: none;
     border-radius: 20px;
     padding: 12px 20px;
@@ -42,11 +42,11 @@ h2{
 }
 
 .btn-login {
-    background-color: #FFA500;
+    background-color: #002bc8;
     border: none;
 }
 .btn-login:hover {
-    background-color: #FF8C00;
+    background-color: #002bc8;
 }
 
 
