@@ -1,6 +1,6 @@
 :root {
-    --sabs-orange: #FF8C00;
-    --sabs-light-orange: #FFA500;
+    --sabs-orange: #3d5fdb;
+    --sabs-light-blue: #002bc8;
     --sabs-gray: #F0F0F0;
 }
 body {
@@ -19,11 +19,11 @@ body {
 }
 .sidebar .nav-link.active {
     background-color: var(--sabs-orange);
-    color: white;
+    color: rgb(255, 255, 255);
 }
 .sidebar .nav-link:hover:not(.active) {
-    background-color: var(--sabs-light-orange);
-    color: white;
+    background-color: var(--sabs-light-blue);
+    color: rgb(255, 255, 255);
 }
 .top-bar {
     background-color: var(--sabs-orange);
@@ -34,7 +34,15 @@ body {
     background-color: var(--sabs-gray);
     height: calc(160vh - 80px);
     padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.main-content .card{
+    color: white; 
+}
+
+
 .sena-logo {
     width: 100px;
     margin-top: auto;
@@ -66,48 +74,13 @@ body {
     background-color: var(--sabs-gray);
 }
 
-.main-content{
-    display: flex;
-    flex-wrap: wrap;
-
-    
-}
-.main-content .recuadro,.recuadro2,.recuadro3 {
-    background-color: rgb(255, 255, 255);
-    width: 250px;
-    height: 180px;
-    margin: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 30px;
-    text-align: center;
-    justify-content: center;
-}
 
 
-.main-content .registro, .stock, .caducar{
-    background-color: rgb(255, 255, 255);
-    width: 280px;
-    height: 400px;
-    margin: 20px;
-    flex-wrap: wrap;
-    text-align: center;
 
-}
+
 
     
     
-
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 15px;
-    text-align: left;
-}
-
-
 
 
 
